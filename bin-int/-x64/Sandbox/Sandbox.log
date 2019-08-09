@@ -1,0 +1,2 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project '..\Hazel.vcxproj' does not exist.
+  Sandbox.vcxproj -> C:\Users\daniel\Documents\GitHub\Hazel\bin\-x64\Sandbox\Sandbox.exe

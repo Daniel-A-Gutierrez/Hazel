@@ -1,0 +1,4 @@
+﻿  Application.cpp
+  LINK : C:\Users\daniel\Documents\GitHub\Hazel\x64\Debug\Hazel.dll not found or not built by the last incremental link; performing full link
+     Creating library C:\Users\daniel\Documents\GitHub\Hazel\x64\Debug\Hazel.lib and object C:\Users\daniel\Documents\GitHub\Hazel\x64\Debug\Hazel.exp
+  Hazel.vcxproj -> C:\Users\daniel\Documents\GitHub\Hazel\x64\Debug\Hazel.dll
