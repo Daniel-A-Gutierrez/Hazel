@@ -9,7 +9,7 @@ int main(int argc, char** argvv)
 
 	Hazel::Log::Init();
 	HZ_CORE_TRACE("core logger initialized");
-	HZ_CLIENT_INFO("hi");
+	HZ_INFO("hi");
 
 	auto app = Hazel::CreateApplication();
 	app->Run();
