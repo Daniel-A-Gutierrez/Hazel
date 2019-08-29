@@ -5,7 +5,8 @@ class Sandbox : public Hazel::Application
 public:
 	Sandbox()
 	{
-
+		//PushLayer(new Hazel::ImGuiLayer);
+		PushOverlay(new Hazel::ImGuiLayer);
 	}
 
 
