@@ -25,9 +25,10 @@ include "Hazel/vendor/imgui"
 
 project "Hazel"
 	location "Hazel"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 
  	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -43,6 +44,12 @@ project "Hazel"
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
 
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS",
+		"no_init_all=deprecated"
 	}
 
  	includedirs
@@ -64,7 +71,6 @@ project "Hazel"
 	}
 
  	filter "system:windows"
-		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
 
@@ -75,32 +81,32 @@ project "Hazel"
 			"GLFW_INCLUDE_NONE"
 		}
 
- 		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
-		}
 
  	filter "configurations:Debug"
 		defines "HZ_DEBUG"
 		runtime "Debug"
-		buildoptions "/MDd"
+		buildoptions "/MTd"
 		symbols "On"
 
  	filter "configurations:Release"
 		defines "HZ_RELEASE"
-		buildoptions "/MD"
+		buildoptions "/MTd"
 		optimize "On"
+		runtime "Release"
 
  	filter "configurations:Dist"
 		defines "HZ_DIST"
-		buildoptions "/MD"
+		buildoptions "/MTd"
 		optimize "On"
+		runtime "Release"
 
  project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	staticruntime "on"
+	cppdialect "C++17"
+
 
  	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -125,7 +131,6 @@ project "Hazel"
 	}
 
  	filter "system:windows"
-		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
 
@@ -137,17 +142,17 @@ project "Hazel"
  	filter "configurations:Debug"
 		defines "HZ_DEBUG"
 		runtime "debug"
-		buildoptions "/MDd"
+		buildoptions "/MTd"
 		symbols "On"
 
  	filter "configurations:Release"
 		defines "HZ_RELEASE"
 		runtime "release"
-		buildoptions "/MD"
+		buildoptions "/MTd"
 		optimize "On"
 
  	filter "configurations:Dist"
 		defines "HZ_DIST"
 		runtime "release"
-		buildoptions "/MD"
+		buildoptions "/MTd"
 		optimize "On" 
